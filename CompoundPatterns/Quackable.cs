@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace CompoundPatterns
 {
-    class Program
+    public interface Quackable:IQuackObservable
     {
-        static void Main(string[] args)
-        {
-        }
+        void quack();
     }
 }
