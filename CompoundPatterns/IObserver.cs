@@ -8,6 +8,6 @@ namespace CompoundPatterns
 {
     public interface IObserver
     {
-        void update();
+        void update(IQuackObservable duck);
     }
 }

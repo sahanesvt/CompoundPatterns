@@ -19,10 +19,10 @@ namespace CompoundPatterns
         void simulate(AbstractDuckFactory duckFactory)
         {
             //Quackable mallardDuck = duckFactory.createMallardDuck();
-            Quackable redheadDuck = duckFactory.createRedheadDuck();
-            Quackable duckCall = duckFactory.createDuckCall();
-            Quackable rubberDuck = duckFactory.createRubberDuck();
-            Quackable gooseDuck = new GooseAdapter(new Goose());
+            IQuackable redheadDuck = duckFactory.createRedheadDuck();
+            IQuackable duckCall = duckFactory.createDuckCall();
+            IQuackable rubberDuck = duckFactory.createRubberDuck();
+            IQuackable gooseDuck = new GooseAdapter(new Goose());
 
             /*
             Quackable mallardDuck = new QuackCounter(new MallardDuck());
@@ -43,10 +43,10 @@ namespace CompoundPatterns
 
             Flock flockOfMallards = new Flock();
 
-            Quackable mallardOne = duckFactory.createMallardDuck();
-            Quackable mallardTwo = duckFactory.createMallardDuck();
-            Quackable mallardThree = duckFactory.createMallardDuck();
-            Quackable mallardFour = duckFactory.createMallardDuck();
+            IQuackable mallardOne = duckFactory.createMallardDuck();
+            IQuackable mallardTwo = duckFactory.createMallardDuck();
+            IQuackable mallardThree = duckFactory.createMallardDuck();
+            IQuackable mallardFour = duckFactory.createMallardDuck();
 
             flockOfMallards.add(mallardOne);
             flockOfMallards.add(mallardTwo);
@@ -63,6 +63,9 @@ namespace CompoundPatterns
             simulate(gooseDuck);
             */
 
+            Quackologist quackologist = new Quackologist();
+            flockOfDucks.registerObserver(quackologist);
+
             Console.WriteLine("\nDuck Simulator: Whole Flock Simulation");
             simulate(flockOfDucks);
 
@@ -72,7 +75,7 @@ namespace CompoundPatterns
             Console.WriteLine("The ducks quacked " + QuackCounter.getQuacks() + " times");
         }
 
-        void simulate(Quackable duck)
+        void simulate(IQuackable duck)
         {
             duck.quack();
         }

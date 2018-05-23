@@ -8,22 +8,22 @@ namespace CompoundPatterns
 {
     public class CountingDuckFactory : AbstractDuckFactory
     {
-        public override Quackable createDuckCall()
+        public override IQuackable createDuckCall()
         {
             return new QuackCounter(new DuckCall());
         }
 
-        public override Quackable createMallardDuck()
+        public override IQuackable createMallardDuck()
         {
             return new QuackCounter(new MallardDuck());
         }
 
-        public override Quackable createRedheadDuck()
+        public override IQuackable createRedheadDuck()
         {
             return new QuackCounter(new RedheadDuck());
         }
 
-        public override Quackable createRubberDuck()
+        public override IQuackable createRubberDuck()
         {
             return new QuackCounter(new RubberDuck());
         }

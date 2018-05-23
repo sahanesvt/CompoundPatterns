@@ -21,7 +21,7 @@ namespace CompoundPatterns
         {
             foreach(IObserver observer in _observers)
             {
-                observer.update();
+                observer.update(_duck);
             }
         }
 
